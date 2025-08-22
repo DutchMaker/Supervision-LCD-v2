@@ -143,6 +143,17 @@ void lcd_set_palette(uint8_t index, uint16_t color)
     lcd_palette[index] = color;
 }
 
+void lcd_set_predefined_palette(uint8_t palette_index)
+{
+    for (uint8_t i = 0; i < PALETTE_SIZE; ++i)
+    {
+        uint8_t r = palette[palette_index][i][0];
+        uint8_t g = palette[palette_index][i][1];
+        uint8_t b = palette[palette_index][i][2];
+        lcd_set_palette(i, RGB(r, g, b));
+    }
+}
+
 void lcd_fill_screen(uint8_t buffer_index, uint8_t palette_color)
 {
     uint8_t* buffer = get_framebuffer(buffer_index);

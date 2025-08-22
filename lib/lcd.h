@@ -39,8 +39,11 @@ uint16_t RGB(uint8_t r, uint8_t g, uint8_t b);
 // Return an RGB565 grayscale color.
 uint16_t GRAY(uint8_t v);
 
-// Set a palette entry (0-255) to an RGB565 colour.
+// Set a palette entry (0-255) for the active palette to an RGB565 colour.
 void lcd_set_palette(uint8_t index, uint16_t rgb565);
+
+// Load one of the predefined palettes as active palette.
+void lcd_set_predefined_palette(uint8_t palette_index);
 
 // Fill the entire screen with a single palette color (0-255).
 void lcd_fill_screen(uint8_t buffer_index, uint8_t palette_color);
@@ -48,4 +51,4 @@ void lcd_fill_screen(uint8_t buffer_index, uint8_t palette_color);
 // Render the whole framebuffer to the display.
 void lcd_render_framebuffer(uint8_t buffer_index);
 
-#endif // LCD_DRIVER_H
+#endif

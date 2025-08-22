@@ -6,21 +6,15 @@
 #include "lib/lcd.h"
 #include "lib/supervision.h"
 
+#define PALETTE 1
+
 uint8_t render_buffer_index = 0;
 
 // LCD rendering loop.
 // Runs on CPU core 1, separated from the data capture loop.
 void __time_critical_func(render_core)()
 {
-    // lcd_set_palette(0, GRAY(210));    // Background (dotmatrix LCD green)
-    // lcd_set_palette(1, GRAY(170));    // Light Gray
-    // lcd_set_palette(2, GRAY(85));     // Dark Gray
-    // lcd_set_palette(3, GRAY(0));      // Black
-
-    lcd_set_palette(0, RGB(176, 203, 101)); // Background (dotmatrix LCD green)
-    lcd_set_palette(1, RGB(96, 118, 35));   // Light Gray
-    lcd_set_palette(2, RGB(65, 81, 21));    // Dark Gray
-    lcd_set_palette(3, RGB(26, 33, 8));     // Black
+    lcd_set_predefined_palette(0); // Load palette with intro image colors.
 
     lcd_init();
     lcd_render_framebuffer(render_buffer_index);
@@ -44,6 +38,9 @@ void __not_in_flash_func(capture_data)()
 
     // Initialize GPIOs to which the Supervision is connected.
     supervision_gpio_init();
+
+    // Load palette with Supervision colors.
+    lcd_set_predefined_palette(PALETTE);
 
     // Wait for a new frame to start.
     while (gpio_get(SV_PIN_FRAME_POLARITY)) {
