@@ -3,7 +3,10 @@
 Replace the stock, dotmatrix LCD of the Watara Supervision with a modern IPS LCD.  
 This is a follow up on my [previous mod project](https://github.com/DutchMaker/Supervision-LCD-v1) which had a lot of issues.
 
-_...images and video pending..._
+<a href="https://www.youtube.com/shorts/pEE4NXJStmE">
+<img src="docs/prototype.png" height="500" /><br />
+Watch demo video
+</a>
 
 ## Hardware setup
 
