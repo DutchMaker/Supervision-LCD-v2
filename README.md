@@ -93,5 +93,6 @@ I have used Visual Studio Code with the official Raspberry Pi Pico extension.
 ## Acknowledgments
 
 🙏🏻 Many thanks to [xrip](https://github.com/xrip/watara-supervision-lcd) for his idea of using the RP2040!  
+🙏🏻 Many thanks to [VISmodding](https://github.com/VISmodding/Watara-Supervision-ONLY-IPS-LCD-MOD) for sharing an improved LCD initialization sequence and for taking the mod to the next level!
 
 🤪 Thanks to everyone who was crazy enough to research Supervision hardware and share their insights.
